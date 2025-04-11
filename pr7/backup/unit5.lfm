@@ -1,0 +1,80 @@
+object Form5: TForm5
+  Left = 906
+  Height = 376
+  Top = 383
+  Width = 777
+  Caption = 'Тех.данные'
+  ClientHeight = 376
+  ClientWidth = 777
+  DesignTimePPI = 120
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 312
+    Top = 8
+    Width = 600
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'Кузов'
+        Width = 80
+        FieldName = 'Tip_kuzova'
+      end    
+      item
+        Title.Caption = 'Кол.дверей'
+        Width = 90
+        FieldName = 'Kol_dverey'
+      end    
+      item
+        Title.Caption = 'Кол. мест'
+        Width = 80
+        FieldName = 'kol_mest'
+      end    
+      item
+        Title.Caption = 'Двигатель'
+        Width = 80
+        FieldName = 'Tip_dvigatel'
+      end    
+      item
+        Title.Caption = 'Расположение'
+        Width = 110
+        FieldName = 'Raspolozh_dvigatel'
+      end    
+      item
+        Title.Caption = 'Объем'
+        Width = 60
+        FieldName = 'Obyem_dvigatel'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'roza'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 706
+    Top = 24
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'technical_data'
+    Left = 704
+    Top = 92
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 706
+    Top = 164
+  end
+end

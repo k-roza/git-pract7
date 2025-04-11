@@ -1,0 +1,80 @@
+object Form1: TForm1
+  Left = 368
+  Height = 371
+  Top = 330
+  Width = 910
+  Caption = 'Клиенты'
+  ClientHeight = 371
+  ClientWidth = 910
+  DesignTimePPI = 120
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 320
+    Top = 8
+    Width = 824
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 30
+        FieldName = 'ID_kliyent'
+      end    
+      item
+        Title.Caption = 'ФИО'
+        Width = 240
+        FieldName = 'FIO'
+      end    
+      item
+        Title.Caption = 'Серия'
+        Width = 60
+        FieldName = 'Seriya_pasporta'
+      end    
+      item
+        Title.Caption = 'Номер'
+        Width = 70
+        FieldName = 'Number_pasporta'
+      end    
+      item
+        Title.Caption = 'Адресс'
+        Width = 250
+        FieldName = 'Home_adres'
+      end    
+      item
+        Title.Caption = 'Телефон'
+        Width = 110
+        FieldName = 'Telephone'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'roza'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 840
+    Top = 32
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'kliyenty'
+    Left = 840
+    Top = 101
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 840
+    Top = 184
+  end
+end

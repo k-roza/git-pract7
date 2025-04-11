@@ -1,0 +1,76 @@
+object Form4: TForm4
+  Left = 402
+  Height = 372
+  Top = 248
+  Width = 607
+  Caption = 'Покупка'
+  ClientHeight = 372
+  ClientWidth = 607
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 312
+    Top = 8
+    Width = 496
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID_клиента'
+        Width = 85
+        FieldName = 'ID_kliyent'
+      end    
+      item
+        Title.Caption = 'ID_товара'
+        Width = 80
+        FieldName = 'ID_tovara'
+      end    
+      item
+        Title.Caption = 'Дата'
+        Width = 80
+        FieldName = 'data'
+      end    
+      item
+        Title.Caption = 'Доставка'
+        Width = 70
+        FieldName = 'dostavka'
+      end    
+      item
+        Title.Caption = 'Оплата'
+        Width = 110
+        FieldName = 'vid_oplaty'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'roza'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 547
+    Top = 21
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    Active = True
+    TableName = 'pokupka'
+    Left = 547
+    Top = 96
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 553
+    Top = 173
+  end
+end

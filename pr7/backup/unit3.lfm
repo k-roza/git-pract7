@@ -1,0 +1,92 @@
+object Form3: TForm3
+  Left = 1019
+  Height = 359
+  Top = 271
+  Width = 791
+  Caption = 'Товар'
+  ClientHeight = 359
+  ClientWidth = 791
+  DesignTimePPI = 120
+  OnCreate = FormCreate
+  LCLVersion = '3.8.0.0'
+  object DBGrid1: TDBGrid
+    Left = 8
+    Height = 312
+    Top = 8
+    Width = 648
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'ID'
+        Width = 30
+        FieldName = 'ID_tovara'
+      end    
+      item
+        Title.Caption = 'Страна'
+        Width = 120
+        FieldName = 'Strana_izgotovitel'
+      end    
+      item
+        Title.Caption = 'Марка'
+        Width = 70
+        FieldName = 'Marka'
+      end    
+      item
+        Title.Caption = 'Модель'
+        Width = 70
+        FieldName = 'Model'
+      end    
+      item
+        Title.Caption = 'Цвет'
+        Width = 70
+        FieldName = 'Color'
+      end    
+      item
+        Title.Caption = 'Наличие'
+        Width = 70
+        FieldName = 'Nalichie'
+      end    
+      item
+        Title.Caption = 'Когда будет'
+        Width = 90
+        FieldName = 'Kogda_budet'
+      end    
+      item
+        Title.Caption = 'Цена'
+        Width = 70
+        FieldName = 'Price'
+      end>
+    DataSource = DataSource1
+    TabOrder = 0
+  end
+  object ZConnection1: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = '127.0.0.1'
+    Port = 0
+    Database = 'roza'
+    User = 'root'
+    Password = 'root'
+    Protocol = 'MariaDB-10'
+    Left = 712
+    Top = 24
+  end
+  object ZTable1: TZTable
+    Connection = ZConnection1
+    CachedUpdates = True
+    Active = True
+    TableName = 'tovar'
+    Left = 712
+    Top = 96
+  end
+  object DataSource1: TDataSource
+    DataSet = ZTable1
+    Left = 712
+    Top = 176
+  end
+end
